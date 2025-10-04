@@ -1,0 +1,19 @@
+n_step=0:15;
+step_sequence=(n_step>=0);
+
+subplot(2,1,1)
+x=a.^n_step.*step_sequence;
+a=3;
+stem(n_step,x,'-b','filled','LineWidth',1.2)
+xlabel('n')
+ylabel('x[n]')
+title('DT Eeponential Growth')
+
+
+subplot(2,1,2)
+x=a.^n_step.*step_sequence;
+a=2;
+stem(n_step,x,'-b','filled','LineWidth',1.2)
+xlabel('n')
+ylabel('x[n]')
+title('DT Eeponential Decay')

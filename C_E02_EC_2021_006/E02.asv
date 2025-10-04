@@ -1,0 +1,16 @@
+t = -2*pi:0.1:2*pi;
+theta = pi/4;
+unshipted_sine_wave = sin(t);
+plot(t,unshipted_sine_wave,'-b','LineWidth',1.2)
+xlabel('-2?<x<2?')
+ylabel('sin(x)')
+title('CT Sine wave')
+grid on
+hpld on
+
+shipted_sine_wave = sin(t);
+plot(t,shipted_sine_wave,'-b','LineWidth',1.2)
+xlabel('-2?<x<2?')
+ylabel('sin(x )')
+title('CT Sine wave')
+

@@ -1,0 +1,14 @@
+subplot(2,1,1);
+x = linspace(-5,5);
+y1 = x.^2+1i*x;
+plot(x,y1)
+xlabel('x')
+ylabel('Real Part')
+title('Real Part of w=x^2+ix')
+
+subplot(2,1,2); 
+y2 = x.^2+1i*x;
+plot(x,y2)
+xlabel('x')
+ylabel('Imaginary Part')
+title('Imaginary Part of w=x^2+ix')

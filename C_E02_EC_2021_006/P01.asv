@@ -1,0 +1,53 @@
+subplot(3,2,1);
+t_impulse = -5:0.01:5;
+impulse_signal = (t_impulse == 0);
+plot(t_impulse,impulse_signal,'-b','LineWidth',1.2)
+xlabel('Time')
+ylabel('Amplitude')
+title('CT Unit Impulse Signal')
+grid on
+ 
+subplot(3,2,2);
+t_step = -5:0.01:5;
+step_sequence = (t_step >= 0);
+plot(t_step,step_sequence,'-b','LineWidth',1.2)
+xlabel('Time')
+ylabel('Amplitude')
+title('CT Unit Step Signal')
+grid on
+ 
+subplot(3,2,3);
+t_ramp = 0:0.01:10;
+ramp_sequence = max (t_ramp,0);
+plot(t_ramp,ramp_sequence,'-b','LineWidth',1.2)
+xlabel('Time')
+ylabel('Amplitude')
+title('CT Ramp Signal')
+grid on
+ 
+subplot(3,2,4);
+t_exp = 0:30;
+a=1.5;
+exp_sequence = a.^t_exp;
+plot(t_exp,exp_sequence,'-b','LineWidth',1.2)
+xlabel('Time')
+ylabel('Amplitude')
+title('CT Exponential Signal')
+grid on
+
+subplot(3,2,5);
+t = -2*pi:0.1:2*pi;
+sine_wave = sin(t);
+plot(t,sine_wave,'-b','LineWidth',1.2)
+xlabel('Time')
+ylabel('Amplitude')
+title('CT Sine wave')
+grid on
+
+subplot(3,2,6);
+cosine_wave = cos(t);
+plot(t,cosine_wave,'-b','LineWidth',1.2)
+xlabel('')
+ylabel('Amplitude')
+title('CT Cosine Wave')
+grid on

@@ -1,0 +1,42 @@
+subplot(2,2,1);
+x = 0:5:10;
+y1 = exp(-x);
+plot(x,y1,'-b','LineWidth',1.5)
+xlabel('x')
+ylabel('y')
+title('Normal Plot:y=e^-^x')
+axis([0 10 0 1])
+grid on
+
+subplot(2,2,2);
+x = 0:5:10;
+y1 = exp(-x);
+plot(x,y1,'-g','LineWidth',1.5)
+xlabel('x')
+ylabel('y')
+title('Normal Plot:y=e^-^x')
+axis([0 10 0 1])
+grid on
+
+subplot(2,2,3);
+x = 0:5:10;
+y1 = exp(-x);
+plot(x,y1,'-r','LineWidth',1.5)
+xlabel('x')
+ylabel('y')
+title('Normal Plot:y=e^-^x')
+axis([0 10 0 1])
+grid on
+
+subplot(2,2,4);
+x = 0:5:10;
+y1 = exp(-x);
+plot(x,y1,'-k','LineWidth',1.5)
+xlabel('x')
+ylabel('y')
+title('Normal Plot:y=e^-^x')
+axis([0 10 0 1])
+grid on
+
+
+

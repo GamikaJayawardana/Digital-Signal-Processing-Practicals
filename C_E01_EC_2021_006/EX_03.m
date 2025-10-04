@@ -1,0 +1,16 @@
+subplot(2,1,1);
+x = -5:0.5:5;
+y1 = exp(-x)+1i*log(x.^2+2);
+stem(x,real(y1),'-b','filled','LineWidth',1.5)
+xlabel('x')
+ylabel('Real Part')
+title('Real Part of w=exp(-x)+ilog(x^2+2)')
+grid on
+
+subplot(2,1,2); 
+y2 = exp(-x)+1i*log(x.^2+2);
+stem(x,imag(y2),'-r','filled','LineWidth',1.5)
+xlabel('x')
+ylabel('Imaginary Part')
+title('Imaginary Part of w=exp(-x)+ilog(x^2+2)')
+grid on

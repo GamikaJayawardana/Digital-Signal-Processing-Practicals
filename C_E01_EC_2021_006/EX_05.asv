@@ -1,0 +1,34 @@
+% Define the range for x and y
+x = linspace(-5, 5, 100);
+y = linspace(-5, 5, 100);
+
+% Create a meshgrid
+[X, Y] = meshgrid(x, y);
+
+% Define the Gaussian function
+Z = exp(-(X.^2/4 + Y.^2/4));
+
+% Create the surface plot
+figure;
+surf(X, Y, Z);
+
+% Apply a color map
+colormap('jet'); % You can try 'parula', 'hot', 'cool', etc.
+
+% Add labels and title
+xlabel('x-axis');
+ylabel('y-axis');
+zlabel('f(x, y)');
+title('3D Surface Plot of Gaussian Function');
+
+% Add grid lines
+grid on;
+
+% Set axis limits
+xlim([-5 5]);
+ylim([-5 5]);
+zlim([0 1]);
+
+% Improve visualization
+shading interp; % Smooth color transitions
+colorbar;       % Show color scale
