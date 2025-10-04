@@ -1,0 +1,37 @@
+%Time vector for continuous signal
+t = 0:0.001:1;
+% Continuous-time sine waves
+x1 =sin(25*pi*t);
+x2 =sin(25*pi*(t-0.2));
+
+figure;
+subplot(3,1,1)
+plot(t,x1,'-m','LineWidth',1.5)
+hold on
+plot(t,x2,'--g','LineWidth',1.5) 
+hold off
+title('Analogue (Continuous) Input Signal')
+ylabel('x(t)','Interpreter','tex')
+xlabel('time(sec)')
+
+% Sampling at Nyquist rate 
+F_s = 20;
+% Sampling points
+n = 0:1/F_s:1;
+% Discrete-time signals
+x1_s =sin(25*pi*n);
+x2_s =sin(25*pi*(n-0.2));
+
+subplot(3,1,2)
+stem(n,x1_s,'b','filled','MarkerFaceColor','yellow','LineWidth',1.5)
+title('Discreete Time Signal for x1(t)','Interpreter','tex')
+xlabel('samples(n)')
+ylabel('x_s','Interpreter','tex')
+
+subplot(3,1,3)
+stem(n,x2_s,'r','filled','MarkerFaceColor','blue','LineWidth',1.5)
+title('Discreete Time Signal for x2(t)','Interpreter','tex')
+xlabel('samples(n)')
+ylabel('x_s','Interpreter','tex')
+
+

@@ -1,0 +1,24 @@
+%Time vector for continuous signal
+t = 0:0.001:1;
+% Continuous-time sine waves
+x =sin(10*pi*t) + sin(50*pi*t);
+
+figure;
+subplot(3,1,1)
+plot(t,x,'-m','LineWidth',1.5)
+title('Analogue (Continuous) Input Signal')
+ylabel('x(t)','Interpreter','tex')
+xlabel('time(sec)')
+
+% Sampling at Nyquist rate 
+F_s = 120;
+% Sampling points
+n = 0:1/F_s:1;
+% Discrete-time signals
+x_s =sin(10*pi*n) + sin(50*pi*n);
+
+subplot(3,1,2)
+stem(n,x_s,'-b','LineWidth',1.5)
+title('Discreete Time Signal','Interpreter','tex')
+xlabel('samples(n)')
+ylabel('x_s','Interpreter','tex')
