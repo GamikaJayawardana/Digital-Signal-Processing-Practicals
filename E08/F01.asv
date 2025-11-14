@@ -1,0 +1,51 @@
+alphap = 3; 
+alphas = 15; 
+fp = 500; 
+fs = 750; 
+f = 2000; 
+
+% Normalize the frequencies 
+omp = 2 * fp / f; 
+oms = 2 * fs / f; 
+
+% Determine the order and cutoff frequency 
+[N, Wn] = buttord(omp, oms, alphap, alphas);
+
+% Display the order and cutoff frequency 
+disp('Order of the filter n ='); 
+disp(N); 
+disp('Cutoff frequency Wn = '); 
+disp(Wn); 
+
+% Design Butterworth low-pass filter 
+[b, a] = butter(N, Wn, 'low'); 
+% Display the filter coefficients 
+disp('Filter coefficients b ='); 
+disp(b); 
+disp('Filter coefficients a ='); 
+disp(a); 
+
+w = 0:0.01:pi; % Frequency ranges from 0 to π (normalized) 
+[h, om] = freqz(b, a, w, 'whole');% The frequency response 
+m = abs(h); 
+% Magnitude of the frequency response 
+an = angle(h); % Phase of the frequency response
+
+[bz,az] = bilinear(b,a,f); 
+
+figure;
+subplot(2,1,1);
+plot(w/pi,mag2db(m),'-b','LineWidth',1);
+xlabel('Normalized Frequency');
+ylabel('Gain in dB');
+title('Butterworth low-pass Filter Frequency Response');
+
+
+subplot(2,1,2);
+plot(w/pi,an,'-b','LineWidth',1);
+xlabel('Normalized Frequency');
+ylabel('Phase in Radians');
+title('Butterworth low-pass Filter Phase Response');
+
+
+

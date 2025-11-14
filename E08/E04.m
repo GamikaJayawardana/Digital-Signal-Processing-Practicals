@@ -1,0 +1,60 @@
+alphap = 1;
+alphas = 40;
+
+fp1 = 800;
+fp2 = 1800;
+
+fs1 = 500;
+fs2 = 2500;
+
+f = 8000;
+
+omp = [2*fp1/f 2*fp2/f];
+oms = [2*fs1/f 2*fs2/f];
+
+[N, Wn] = buttord(omp, oms, alphap, alphas);
+
+disp('Order of filter =');
+disp(N);
+disp('Cutoff frequencies = ');
+disp(Wn);
+
+[b, a] = butter(N, Wn, 'bandpass');
+
+disp('Filter coefficients b ='); disp(b);
+disp('Filter coefficients a ='); disp(a);
+
+w = 0:0.01:pi;
+[h, om] = freqz(b, a, w, 'whole');
+m = abs(h);
+
+[bz, az] = bilinear(b, a, f);
+
+figure;
+plot(w/pi, mag2db(m), 'y', 'LineWidth', 1);
+xlabel('Normalized Frequency');
+ylabel('Gain in dB');
+title('Butterworth Band-pass Filter Response');
+grid on;
+
+% Generate sonar signal
+t = 0:1/f:1;
+x = sin(2*pi*300*t) + sin(2*pi*1200*t) + sin(2*pi*3000*t);
+
+% Filter the signal
+y = filter(b, a, x);
+
+figure;
+subplot(2,1,1);
+plot(t, x, 'b');
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Original Sonar Signal');
+grid on;
+
+subplot(2,1,2);
+plot(t, y, 'y');
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Filtered Sonar Signal');
+grid on;
