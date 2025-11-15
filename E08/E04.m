@@ -50,6 +50,7 @@ plot(t, x, 'b');
 xlabel('Time (s)');
 ylabel('Amplitude');
 title('Original Sonar Signal');
+xlim([0 0.25]);
 grid on;
 
 subplot(2,1,2);
@@ -57,4 +58,5 @@ plot(t, y, 'y');
 xlabel('Time (s)');
 ylabel('Amplitude');
 title('Filtered Sonar Signal');
+xlim([0 0.25]);
 grid on;
