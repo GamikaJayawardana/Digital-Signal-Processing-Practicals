@@ -12,6 +12,7 @@ plot(t,x_noisy);
 
 N = length(t);
 Y = fft(x_noisy, N);
+disp(N);
 
 f = (0:N-1)*(fs/N);
 
